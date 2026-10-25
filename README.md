@@ -6,6 +6,9 @@ This integration enables monitoring and control of Fairland pool equipment in Ho
 pool pumps (Inverflow Plus and OEM-rebadged variants such as Madimack), salt chlorinators, multiport (sand-filter) 
 valves and swim jets — connecting locally to the devices via Modbus TCP or RTU.
 
+If you want to integrate Home Assistant and the Fairland (compatible) devices via the iGarden Cloud,
+use the [Fairland (iGarden)](https://github.com/siedi/ha-fairland) integration.
+
 ## Supported devices
 
 | Device | Status |
