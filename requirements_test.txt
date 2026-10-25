@@ -1,0 +1,11 @@
+# Pinned to the Home Assistant release named in hacs.json, which the tests run on.
+pytest-homeassistant-custom-component==0.13.374
+# The device library, at the version in manifest.json.
+fairland-modbus==0.1.1
+# The modbus integration's requirements in Home Assistant 2026.10.3.
+pymodbus==3.13.1
+modbus-connection[tmodbus]==4.12.4
+tmodbus==0.6.2
+# The usb integration's requirements in Home Assistant 2026.10.3.
+aiousbwatcher==1.1.2
+serialx==1.11.0

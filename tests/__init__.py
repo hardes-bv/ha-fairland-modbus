@@ -1,0 +1,13 @@
+"""Tests for the Fairland (Modbus) integration."""
+
+from custom_components.fairland_modbus.const import CONF_UNIT_ID, TYPE_SERIAL, TYPE_TCP
+from homeassistant.const import CONF_DEVICE, CONF_HOST, CONF_PORT, CONF_TYPE
+
+MOCK_ENTRY_ID = "01JFAIRLANDHEATPUMP0000000"
+MOCK_TITLE = "Fairland heat pump"
+
+MOCK_TCP_INPUT = {CONF_HOST: "192.168.1.200", CONF_PORT: 502, CONF_UNIT_ID: 1}
+MOCK_TCP_DATA = {CONF_TYPE: TYPE_TCP, **MOCK_TCP_INPUT}
+
+MOCK_SERIAL_INPUT = {CONF_DEVICE: "/dev/ttyUSB0", CONF_UNIT_ID: 1}
+MOCK_SERIAL_DATA = {CONF_TYPE: TYPE_SERIAL, **MOCK_SERIAL_INPUT}

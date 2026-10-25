@@ -1,0 +1,86 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Device is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "link_in_use": "Another integration already uses this connection with different settings.",
+      "not_a_fairland_heat_pump": "A device answers at this address, but it does not answer like a Fairland heat pump board.",
+      "unit_silent": "The gateway answers, but the heat pump behind it does not. Check that the heat pump is powered, that A and B are not swapped, and that the gateway is set to 9600 baud, no parity, 1 stop bit.",
+      "unknown": "Unexpected error"
+    },
+    "step": {
+      "serial": {
+        "data": {
+          "device": "Device",
+          "unit_id": "Unit ID"
+        },
+        "data_description": {
+          "device": "The RS485 adapter the heat pump is wired to. The line runs at 9600 baud, no parity, 1 stop bit.",
+          "unit_id": "The Modbus address of the heat pump. The board answers at 1."
+        },
+        "title": "Heat pump on a serial port"
+      },
+      "tcp": {
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "unit_id": "Unit ID"
+        },
+        "data_description": {
+          "host": "The hostname or IP address of the RS485 gateway. Set the gateway to Modbus TCP to RTU, 9600 baud, no parity, 1 stop bit.",
+          "port": "The Modbus TCP port of the gateway.",
+          "unit_id": "The Modbus address of the heat pump. The board answers at 1."
+        },
+        "title": "Heat pump behind a Modbus TCP gateway"
+      },
+      "user": {
+        "menu_options": {
+          "serial": "Serial port (USB RS485 adapter)",
+          "tcp": "Network (RS485 to Modbus TCP gateway)"
+        },
+        "title": "How is the heat pump connected?"
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "heat_pump": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "silence": "Silence",
+              "smart": "Smart",
+              "super_silence": "Super silence",
+              "turbo": "Turbo"
+            }
+          }
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "cannot_connect": {
+      "message": "Cannot reach the heat pump: {error}"
+    },
+    "invalid_value": {
+      "message": "The heat pump does not accept this value: {error}"
+    },
+    "no_block_answered": {
+      "message": "The heat pump refused every read."
+    },
+    "no_response": {
+      "message": "The heat pump does not answer: {error}"
+    },
+    "preset_refused": {
+      "message": "The heat pump did not switch to this preset. Some models do not have every working mode, and some accept Smart only while the compressor runs."
+    },
+    "write_failed": {
+      "message": "Failed to send the command to the heat pump: {error}"
+    },
+    "write_refused": {
+      "message": "The heat pump refused the command: {error}"
+    }
+  }
+}

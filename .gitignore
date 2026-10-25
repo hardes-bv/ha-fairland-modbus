@@ -24,3 +24,6 @@ config/*
 # Never committed (PII + size). Only the README documenting the convention is.
 diagnostics/*
 !diagnostics/README.md
+
+# local virtual environment
+.venv/
