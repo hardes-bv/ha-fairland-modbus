@@ -1,5 +1,10 @@
 """Tests for the Fairland (Modbus) integration."""
 
+from copy import deepcopy
+from typing import Any
+
+from fairland_modbus.heat_pump.testing import HEATING
+
 from custom_components.fairland_modbus.const import CONF_UNIT_ID, TYPE_SERIAL, TYPE_TCP
 from homeassistant.const import CONF_DEVICE, CONF_HOST, CONF_PORT, CONF_TYPE
 
@@ -11,3 +16,11 @@ MOCK_TCP_DATA = {CONF_TYPE: TYPE_TCP, **MOCK_TCP_INPUT}
 
 MOCK_SERIAL_INPUT = {CONF_DEVICE: "/dev/ttyUSB0", CONF_UNIT_ID: 1}
 MOCK_SERIAL_DATA = {CONF_TYPE: TYPE_SERIAL, **MOCK_SERIAL_INPUT}
+
+
+def heating_image(**changes: dict[int, Any]) -> dict[str, dict[int, Any]]:
+    """The heating image of the library, with some registers changed."""
+    image = deepcopy(HEATING)
+    for space, values in changes.items():
+        image[space].update(values)
+    return image

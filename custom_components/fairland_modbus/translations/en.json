@@ -58,6 +58,95 @@
           }
         }
       }
+    },
+    "sensor": {
+      "ambient_temperature": {
+        "name": "Ambient temperature"
+      },
+      "compressor_current": {
+        "name": "Compressor current"
+      },
+      "compressor_frequency": {
+        "name": "Compressor frequency"
+      },
+      "compressor_speed": {
+        "name": "Compressor speed"
+      },
+      "compressor_target_frequency": {
+        "name": "Compressor target frequency"
+      },
+      "cooling_plate_temperature": {
+        "name": "Cooling plate temperature"
+      },
+      "evaporator_coil_temperature": {
+        "name": "Evaporator coil temperature"
+      },
+      "exhaust_gas_temperature": {
+        "name": "Exhaust gas temperature"
+      },
+      "expansion_valve_opening": {
+        "name": "Expansion valve opening"
+      },
+      "fan_speed": {
+        "name": "Fan speed"
+      },
+      "fault": {
+        "name": "Fault",
+        "state": {
+          "e0": "E0",
+          "e1": "E1: high pressure",
+          "e2": "E2: low pressure",
+          "e3": "E3: no water flow",
+          "e4": "E4: phase loss",
+          "e5": "E5: supply voltage out of range",
+          "e6": "E6: water temperature difference too large",
+          "e7": "E7: outlet water temperature out of range",
+          "e8": "E8: exhaust gas too hot",
+          "e9": "E9",
+          "ea": "EA: evaporator overheating",
+          "eb": "Eb: ambient temperature out of range",
+          "ed": "Ed: antifreeze reminder",
+          "f0": "F0",
+          "f1": "F1: compressor driver failure",
+          "f2": "F2: PFC module failure",
+          "f3": "F3: compressor start failure",
+          "f4": "F4: compressor running failure",
+          "f5": "F5: inverter board overcurrent",
+          "f6": "F6: inverter board overheating",
+          "f7": "F7: current protection",
+          "f8": "F8: cooling plate overheating",
+          "f9": "F9: fan motor failure",
+          "fa": "FA: PFC module overcurrent",
+          "fb": "Fb: capacitor not charging",
+          "none": "No fault",
+          "p0": "P0: controller communication failure",
+          "p1": "P1: inlet water sensor failure",
+          "p2": "P2: outlet water sensor failure",
+          "p3": "P3: exhaust gas sensor failure",
+          "p4": "P4: evaporator coil sensor failure",
+          "p5": "P5: suction gas sensor failure",
+          "p6": "P6: heat exchanger coil sensor failure",
+          "p7": "P7: ambient temperature sensor failure",
+          "p8": "P8: cooling plate sensor failure",
+          "p9": "P9: current sensor failure",
+          "pa": "PA: restart memory failure"
+        }
+      },
+      "heat_exchanger_coil_temperature": {
+        "name": "Heat exchanger coil temperature"
+      },
+      "inlet_water_temperature": {
+        "name": "Inlet water temperature"
+      },
+      "outlet_water_temperature": {
+        "name": "Outlet water temperature"
+      },
+      "pfc_voltage": {
+        "name": "PFC voltage"
+      },
+      "suction_gas_temperature": {
+        "name": "Suction gas temperature"
+      }
     }
   },
   "exceptions": {

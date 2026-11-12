@@ -11,7 +11,9 @@ from modbus_connection.mock import MockModbusConnection, MockModbusUnit
 import pytest
 from pytest_homeassistant.common import MockConfigEntry
 
+from custom_components.fairland_modbus import PLATFORMS
 from custom_components.fairland_modbus.const import DOMAIN
+from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 
 from . import MOCK_ENTRY_ID, MOCK_TCP_DATA, MOCK_TITLE
@@ -104,13 +106,22 @@ def mock_config_entry(entry_data: dict[str, Any]) -> MockConfigEntry:
 
 
 @pytest.fixture
+def platforms() -> list[Platform]:
+    """The platforms to set up; a test module narrows them to its own."""
+    return PLATFORMS
+
+
+@pytest.fixture
 async def init_integration(
     hass: HomeAssistant,
     mock_config_entry: MockConfigEntry,
     mock_get_unit: MagicMock,
-) -> MockConfigEntry:
+    platforms: list[Platform],
+) -> AsyncIterator[MockConfigEntry]:
     """Set up the integration with the mock heat pump."""
     mock_config_entry.add_to_hass(hass)
-    await hass.config_entries.async_setup(mock_config_entry.entry_id)
-    await hass.async_block_till_done(wait_background_tasks=True)
-    return mock_config_entry
+    # Unloading reads the list too, so it stays narrowed for the whole test.
+    with patch("custom_components.fairland_modbus.PLATFORMS", platforms):
+        await hass.config_entries.async_setup(mock_config_entry.entry_id)
+        await hass.async_block_till_done(wait_background_tasks=True)
+        yield mock_config_entry
